@@ -1,4 +1,21 @@
-const myObj = [
+$(function() {
+
+  $(".question").submit(function(e) {
+    e.preventDefault();
+    const selectedChoice = $('input[name="answer"]:checked').val();
+    checkAnswer( selectedChoice );
+    // console.log('`answerReview` ran');
+    // console.log(correctAnswers);
+
+  })
+
+});
+
+let questionsAnswered = 0;
+
+let correctAnswers = 0;
+
+const allQuestions = [
     {
       question: "What talent did Jessica Wicks showcase when she won the Miss Pawnee beauty pageant in 1994?",
       answerChoices: [
@@ -28,7 +45,8 @@ const myObj = [
         "Tom [f*cking] Haverford"
       ],
       correct: "Ron [f*cking] Swanson"
-    },
+    }//,
+
 /*
  *    {
  *     question: "Who shot Ron on the hunting trip?",
@@ -101,5 +119,55 @@ const myObj = [
  *     correct: "AltaVista"
  *   } 
  */
-  ]
- 
+  ];
+
+function startQuiz() {
+  /** 
+   *  Generate first quiz question upon user clicking
+   *  button with class "start-button".
+   *  Hides the section with class "quiz-question-start"
+   *  and shows section with class "quiz-question-section"
+   *  Adds first question content within label tag
+   *  for "quiz-question-text"
+   *  Populates radio button inputs with values of answer
+   *  choices for the given question.
+   */
+}
+
+function checkAnswer( userInput ) {
+  // compare selected choice w/correct ans from obj
+
+  // look at corresponding ary indx
+  // compare value of allQuestions[ indx ].correct... 
+  // if correct ++ correctAnswers
+  let currentQuestion = allQuestions[questionsAnswered].correct;
+  // console.log(userInput);
+  // console.log(currentQuestion);
+  if (userInput == currentQuestion){
+    correctAnswers++;
+  }
+
+
+
+  
+  // tell user if correct/incorrect
+  // show next question
+  replaceQuestion();
+
+}
+
+function replaceQuestion() {
+  /** 
+   *  Upon submitting a response to a question, replace
+   *  the quiz question and choices with those of the
+   *  next question.
+   *  Replace label for "quiz-question-text" with the
+   *  next question.
+   */
+  questionsAnswered++
+  
+}
+
+function answerCount(){
+
+}
