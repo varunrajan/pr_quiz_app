@@ -4,7 +4,7 @@ $(function() {
     e.preventDefault();
     const selectedChoice = $('input[name="answer"]:checked').val();
     checkAnswer( selectedChoice );
-    // console.log('`answerReview` ran');
+    
     // console.log(correctAnswers);
 
   })
@@ -140,23 +140,24 @@ function checkAnswer( userInput ) {
   // look at corresponding ary indx
   // compare value of allQuestions[ indx ].correct... 
   // if correct ++ correctAnswers
-  let currentQuestion = allQuestions[questionsAnswered].correct;
+  let correctAnswer = allQuestions[questionsAnswered].correct;
   // console.log(userInput);
-  // console.log(currentQuestion);
-  if (userInput == currentQuestion){
+  // console.log(correctAnswer);
+  if (userInput == correctAnswer){
     correctAnswers++;
   }
-
+  // For now:
+  questionsAnswered++;
 
 
   
   // tell user if correct/incorrect
   // show next question
-  replaceQuestion();
+  showQuestion();
 
 }
 
-function replaceQuestion() {
+function showQuestion() {
   /** 
    *  Upon submitting a response to a question, replace
    *  the quiz question and choices with those of the
@@ -164,8 +165,33 @@ function replaceQuestion() {
    *  Replace label for "quiz-question-text" with the
    *  next question.
    */
-  questionsAnswered++
   
+  let currentQuestion = allQuestions[questionsAnswered];
+  console.log(currentQuestion);
+  console.log(currentQuestion.question);
+  $('.question').empty();
+  $('.question').append(
+      `<h2 class="quiz-question-text">${currentQuestion.question}</h2>
+        <div>
+          <input type="radio" name="answer" id="choice0" value="${currentQuestion.answerChoices[0]}">
+          <label for="choice0">${currentQuestion.answerChoices[0]}</label>
+        </div>
+        <div>
+           <input type="radio" name="answer" id="choice1" value="${currentQuestion.answerChoices[1]}">
+          <label for="choice1">${currentQuestion.answerChoices[1]}</label>
+        </div>
+         <div>
+           <input type="radio" name="answer" id="choice2" value="${currentQuestion.answerChoices[2]}">
+           <label for="choice2">${currentQuestion.answerChoices[2]}</label>
+         </div>
+         <div>
+           <input type="radio" name="answer" id="choice3" value="${currentQuestion.answerChoices[3]}">
+           <label for="choice3">${currentQuestion.answerChoices[3]}</label>
+        </div>
+    
+        <button type="submit">Submit</button>
+      `
+    );
 }
 
 function answerCount(){
