@@ -1,11 +1,16 @@
 $(function() {
 
+  $(".start-button").click(function(e) {
+    e.preventDefault();
+    startQuiz();
+  });
+
   $(".question").submit(function(e) {
     e.preventDefault();
     const selectedChoice = $('input[name="answer"]:checked').val();
     checkAnswer( selectedChoice );
-    
-    // console.log(correctAnswers);
+     console.log(questionsAnswered);
+     console.log(correctAnswers);
 
   })
 
@@ -45,80 +50,77 @@ const allQuestions = [
         "Tom [f*cking] Haverford"
       ],
       correct: "Ron [f*cking] Swanson"
-    }//,
-
-/*
- *    {
- *     question: "Who shot Ron on the hunting trip?",
- *     answerChoices: [
- *       "Leslie",
- *       "Donna",
- *       "Tom (correct)",
- *       "Jerry"
- *     ],
- *     correct: "Tom"
- *   },
- *   {
- *     question: "Jerry’s real name is:",
- *     answerChoices: [
- *       "Larry",
- *       "Jerry",
- *       "Barry",
- *       "Garry"
- *     ],
- *     correct: "Garry"
- *   },
- *   {
- *     question: "What did R&B star and Donna’s cousin Ginuwine call his rubber ducks when he was little?",
- *     answerChoices: [
- *       "The Quackson Five",
- *       "The Ducktations",
- *       "Quack City",
- *       "Ducks & Roses"
- *     ],
- *     correct: "The Quackson Five"
- *   },
- *   {
- *     question: "Lil’ Sebastian is a…",
- *     answerChoices: [
- *       "Horse",
- *       "Pony",
- *       "Miniature horse",
- *       "All of the above"
- *     ],
- *     correct: "Miniature horse"
- *   },
- *   {
- *     question: "What’s Ben Wyatt’s favorite food?",
- *     answerChoices: [
- *       "Calzones",
- *       "Pizza",
- *       "Fruit Loops",
- *       "Ice"
- *     ],
- *     correct: "Calzones"
- *   },
- *   {
- *     question: "Ron Swanson’s political views can be categorized as…",
- *     answerChoices: [
- *       "Conservative",
- *       "Libertarian",
- *       "Progressive",
- *       "Anarchist"
- *     ],
- *     correct: "Libertarian"
- *   },
- *   {
- *     question: "What is a Pawnee resident’s preferred search engine?",
- *     answerChoices: [
- *       "Yahoo",
- *       "AltaVista",
- *       "AskJeeves",
- *       "Bing"
- *     ],
- *     correct: "AltaVista"
- *   } 
- */
+    },
+    {
+     question: "Who shot Ron on the hunting trip?",
+     answerChoices: [
+       "Leslie",
+       "Donna",
+       "Tom (correct)",
+       "Jerry"
+     ],
+     correct: "Tom"
+   },
+   {
+     question: "Jerry’s real name is:",
+     answerChoices: [
+       "Larry",
+       "Jerry",
+       "Barry",
+       "Garry"
+     ],
+     correct: "Garry"
+   },
+   {
+     question: "What did R&B star and Donna’s cousin Ginuwine call his rubber ducks when he was little?",
+     answerChoices: [
+       "The Quackson Five",
+       "The Ducktations",
+       "Quack City",
+       "Ducks & Roses"
+     ],
+     correct: "The Quackson Five"
+   },
+   {
+     question: "Lil’ Sebastian is a…",
+     answerChoices: [
+       "Horse",
+       "Pony",
+       "Miniature horse",
+       "All of the above"
+     ],
+     correct: "Miniature horse"
+   },
+   {
+     question: "What’s Ben Wyatt’s favorite food?",
+     answerChoices: [
+       "Calzones",
+       "Pizza",
+       "Fruit Loops",
+       "Ice"
+     ],
+     correct: "Calzones"
+   },
+   {
+     question: "Ron Swanson’s political views can be categorized as…",
+     answerChoices: [
+       "Conservative",
+       "Libertarian",
+       "Progressive",
+       "Anarchist"
+     ],
+     correct: "Libertarian"
+   },
+   {
+     question: "What is a Pawnee resident’s preferred search engine?",
+     answerChoices: [
+       "Yahoo",
+       "AltaVista",
+       "AskJeeves",
+       "Bing"
+     ],
+     correct: "AltaVista"
+   } 
   ];
 
 function startQuiz() {
@@ -132,6 +134,9 @@ function startQuiz() {
    *  Populates radio button inputs with values of answer
    *  choices for the given question.
    */
+  $(".start-button").remove();
+  $(".quiz-question-section").show();
+  showQuestion();
 }
 
 function checkAnswer( userInput ) {
@@ -148,8 +153,6 @@ function checkAnswer( userInput ) {
   }
   // For now:
   questionsAnswered++;
-
-
   
   // tell user if correct/incorrect
   // show next question
