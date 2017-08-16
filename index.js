@@ -9,8 +9,8 @@ $(function() {
     e.preventDefault();
     const selectedChoice = $('input[name="answer"]:checked').val();
     checkAnswer( selectedChoice );
-     console.log(questionsAnswered);
-     console.log(correctAnswers);
+  //   console.log(questionsAnswered);
+  //   console.log(correctAnswers);
 
   })
 
@@ -56,7 +56,7 @@ const allQuestions = [
      answerChoices: [
        "Leslie",
        "Donna",
-       "Tom (correct)",
+       "Tom",
        "Jerry"
      ],
      correct: "Tom"
@@ -122,6 +122,11 @@ const allQuestions = [
      correct: "AltaVista"
    } 
   ];
+const allFeedback = {
+  'undefined': "You have to choose an answer",
+  true: "Wow, you watch this show way too much. You have no life.",
+  false: "Uh okay, have you ever seen this show?",
+  };
 
 function startQuiz() {
   /** 
@@ -134,9 +139,15 @@ function startQuiz() {
    *  Populates radio button inputs with values of answer
    *  choices for the given question.
    */
-  $(".start-button").remove();
+  $(".start-button").hide();
   $(".quiz-question-section").show();
   showQuestion();
+}
+
+function showCount() {
+  $('.question-count').show();
+  $('span.num-question').text(questionsAnswered);
+  $('span.num-correct').text(correctAnswers);
 }
 
 function checkAnswer( userInput ) {
@@ -148,15 +159,34 @@ function checkAnswer( userInput ) {
   let correctAnswer = allQuestions[questionsAnswered].correct;
   // console.log(userInput);
   // console.log(correctAnswer);
-  if (userInput == correctAnswer){
-    correctAnswers++;
+
+  let userStatus = (typeof userInput !== 'undefined') ? (userInput == correctAnswer) : 'undefined';
+  if (userStatus !== 'undefined'){
+    // Only increment questionsAnswered
+    // if a response is given.
+    questionsAnswered++;
+    showQuestion();
+    if (userStatus == true) {
+      correctAnswers++;
+    }
   }
-  // For now:
-  questionsAnswered++;
-  
+
   // tell user if correct/incorrect
-  // show next question
-  showQuestion();
+  provideFeedback(userStatus);
+  showCount();
+}
+
+function provideFeedback( value ) {
+  // if the answer is wrong, highlight the
+  // correct answer and tell user they are
+  // wrong below the answer choices
+  // Otherwise, still highlight the correct
+  // answer and tell user they were correct.
+  $('.feedback-section p').text(allFeedback[value]);
+  console.log(value);
+  console.log(allFeedback[value]);
+  // Provide button for users to move onto
+  // the next question.
 
 }
 
@@ -170,31 +200,18 @@ function showQuestion() {
    */
   
   let currentQuestion = allQuestions[questionsAnswered];
-  console.log(currentQuestion);
-  console.log(currentQuestion.question);
-  $('.question').empty();
-  $('.question').append(
-      `<h2 class="quiz-question-text">${currentQuestion.question}</h2>
-        <div>
-          <input type="radio" name="answer" id="choice0" value="${currentQuestion.answerChoices[0]}">
-          <label for="choice0">${currentQuestion.answerChoices[0]}</label>
-        </div>
-        <div>
-           <input type="radio" name="answer" id="choice1" value="${currentQuestion.answerChoices[1]}">
-          <label for="choice1">${currentQuestion.answerChoices[1]}</label>
-        </div>
-         <div>
-           <input type="radio" name="answer" id="choice2" value="${currentQuestion.answerChoices[2]}">
-           <label for="choice2">${currentQuestion.answerChoices[2]}</label>
-         </div>
-         <div>
-           <input type="radio" name="answer" id="choice3" value="${currentQuestion.answerChoices[3]}">
-           <label for="choice3">${currentQuestion.answerChoices[3]}</label>
-        </div>
-    
-        <button type="submit">Submit</button>
-      `
-    );
+  let choices = currentQuestion.answerChoices;
+  // console.log(currentQuestion);
+  // console.log(currentQuestion.question);
+  $('.quiz-question-text').text(currentQuestion.question);
+    for (i = 0; i < choices.length; i++){
+      // For every choice in the list of possible answers
+      // replace the value in the form for the
+      // corresponding radio input
+      $(`input#${i}`).val(choices[i]).prop('checked',false);
+      $(`label[for="${i}"]`).text(choices[i]);
+    }   
+
 }
 
 function answerCount(){

@@ -5,6 +5,6 @@ header {
 	background-image: url("banner.jpg");
 }
 
-.quiz-question-section {
+.quiz-question-section, .question-count {
 	display: none;
 }
