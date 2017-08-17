@@ -165,7 +165,10 @@ function checkAnswer( userInput ) {
     // Only increment questionsAnswered
     // if a response is given.
     questionsAnswered++;
-    showQuestion();
+    // Need to find a place for the following function:
+    // showQuestion();
+
+    showCorrectAnswer();
     if (userStatus == true) {
       correctAnswers++;
     }
@@ -174,6 +177,16 @@ function checkAnswer( userInput ) {
   // tell user if correct/incorrect
   provideFeedback(userStatus);
   showCount();
+}
+
+function showCorrectAnswer( input ) {
+  $('input[name="answer"]').filter(
+    function(){
+        if ($(this).val() == input){
+          $(this).addClass("correct");
+         }
+      }
+    )
 }
 
 function provideFeedback( value ) {
