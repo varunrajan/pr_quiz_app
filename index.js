@@ -123,7 +123,7 @@ const allQuestions = [
    } 
   ];
 const allFeedback = {
-  'undefined': "You have to choose an answer",
+  undefined: "You have to choose an answer",
   true: "Wow, you watch this show way too much. You have no life.",
   false: "Uh okay, have you ever seen this show?",
   };
@@ -157,18 +157,19 @@ function checkAnswer( userInput ) {
   // compare value of allQuestions[ indx ].correct... 
   // if correct ++ correctAnswers
   let correctAnswer = allQuestions[questionsAnswered].correct;
-  // console.log(userInput);
+   console.log(userInput);
   // console.log(correctAnswer);
 
-  let userStatus = (typeof userInput !== 'undefined') ? (userInput == correctAnswer) : 'undefined';
-  if (userStatus !== 'undefined'){
-    // Only increment questionsAnswered
-    // if a response is given.
+  /* First, check if user selected an answer. If so, then
+   * evaluate userStatus to true or false, depending on
+   * whether the answer was correct or not.
+  */
+  let userStatus;
+  if (userInput) {
+    userStatus = (userInput == correctAnswer);
     questionsAnswered++;
-    // Need to find a place for the following function:
-    // showQuestion();
-
-    showCorrectAnswer();
+      // Need to find a place for the following function:
+    showQuestion();
     if (userStatus == true) {
       correctAnswers++;
     }
