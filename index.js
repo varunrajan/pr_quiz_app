@@ -169,7 +169,8 @@ function checkAnswer( userInput ) {
     userStatus = (userInput == correctAnswer);
     questionsAnswered++;
       // Need to find a place for the following function:
-    showQuestion();
+      // showQuestion();
+    showCorrectAnswer(correctAnswer);
     if (userStatus == true) {
       correctAnswers++;
     }
@@ -180,14 +181,12 @@ function checkAnswer( userInput ) {
   showCount();
 }
 
-function showCorrectAnswer( input ) {
-  $('input[name="answer"]').filter(
-    function(){
-        if ($(this).val() == input){
-          $(this).addClass("correct");
-         }
-      }
-    )
+function showCorrectAnswer( answer ) {
+  /* Check each answer choice in
+   * the form
+  */
+  let correctChoice = $(`input[value="${answer}"]`).attr('id');
+  $(`label[for=${correctChoice}]`).addClass("correct");
 }
 
 function provideFeedback( value ) {
