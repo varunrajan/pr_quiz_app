@@ -14,6 +14,13 @@ $(function() {
 
   })
 
+  $(".next-question-button").click(function(e) {
+    e.preventDefault();
+    $('label').removeClass("correct");
+    $('.next-question-button').toggleClass('hide');
+    showQuestion();
+  })
+
 });
 
 let questionsAnswered = 0;
@@ -187,6 +194,7 @@ function showCorrectAnswer( answer ) {
   */
   let correctChoice = $(`input[value="${answer}"]`).attr('id');
   $(`label[for=${correctChoice}]`).addClass("correct");
+  $('.next-question-button').toggleClass('hide');
 }
 
 function provideFeedback( value ) {
@@ -211,7 +219,6 @@ function showQuestion() {
    *  Replace label for "quiz-question-text" with the
    *  next question.
    */
-  
   let currentQuestion = allQuestions[questionsAnswered];
   let choices = currentQuestion.answerChoices;
   // console.log(currentQuestion);

@@ -13,3 +13,7 @@ header {
 	font-weight: bold;
 	color: red;
 }
+
+.hide {
+	display:none;
+}
