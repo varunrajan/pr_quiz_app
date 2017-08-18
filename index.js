@@ -18,6 +18,7 @@ $(function() {
     e.preventDefault();
     $('label').removeClass("correct");
     $('.next-question-button').toggleClass('hide');
+    $('button[type=submit]').toggleClass('hide');
     showQuestion();
   })
 
@@ -195,6 +196,7 @@ function showCorrectAnswer( answer ) {
   let correctChoice = $(`input[value="${answer}"]`).attr('id');
   $(`label[for=${correctChoice}]`).addClass("correct");
   $('.next-question-button').toggleClass('hide');
+  $('button[type=submit]').toggleClass('hide');
 }
 
 function provideFeedback( value ) {
