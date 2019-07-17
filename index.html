@@ -9,50 +9,50 @@
     <link href="index.css" rel="stylesheet" type="text/css" />
   </head>
   <body>
-  	<header role="banner"></header>
+  	<header role="banner" class="col-12"></header>
     <h1>Parks and Recreation: The Quiz</h1>
     <section class="quiz-question-start">
       <button type="button" class="start-button">Start quiz!</button>
     </section>
- <section class="quiz-question-section">
-   <form class="question">
-   <h2 class="quiz-question-text"></h2>
-     <div>
-       <input type="radio" name="answer" id="0" value="">
-       <label for="0"></label>
-     </div>
-     <div>
-        <input type="radio" name="answer" id="1" value="">
-       <label for="1"></label>
-     </div>
-      <div>
-        <input type="radio" name="answer" id="2" value="">
-        <label for="2"></label>
-      </div>
-      <div>
-        <input type="radio" name="answer" id="3" value="">
-        <label for="3"></label>
-     </div> 
+   <section class="quiz-question-section">
+     <form class="question row">
+     <h2 class="quiz-question-text"></h2>
+       <div>
+         <input type="radio" name="answer" id="0" value="">
+         <label for="0"></label>
+       </div>
+       <div>
+          <input type="radio" name="answer" id="1" value="">
+         <label for="1"></label>
+       </div>
+        <div>
+          <input type="radio" name="answer" id="2" value="">
+          <label for="2"></label>
+        </div>
+        <div>
+          <input type="radio" name="answer" id="3" value="">
+          <label for="3"></label>
+       </div> 
 
-   <button type="submit">Submit</button>
-   </form>
- </section>
- <section class="feedback-section">
-   <p></p>
-   <button type="button" class="next-question-button hide">Next Question</button>
-   <button type="button" class="see-results hide">See Results</button>
- </section>
- <section class="question-count">
-   <p>Questions attempted: <span class="num-question"></span></p>
-   <p>Number correct: <span class="num-correct"></span></p>
- </section>
- <section class="quiz-results hide">
-   <h3>Your Parks and Recreation Fan ranking is...</h3>
-   <h4 class="ranking"></h4>
-   <p class="final-messaging"></p>
-   <p>You got <span class="num-correct"></span> out of <span class="num-question"></span> correct!</p>
- </section>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="index.js"></script>
+     <button type="submit">Submit</button>
+     </form>
+   </section>
+   <section class="feedback-section">
+     <p></p>
+     <button type="button" class="next-question-button hide">Next Question</button>
+     <button type="button" class="see-results hide">See Results</button>
+   </section>
+   <section class="question-count">
+     <p>Questions attempted: <span class="num-question"></span></p>
+     <p>Number correct: <span class="num-correct"></span></p>
+   </section>
+   <section class="quiz-results hide">
+     <h3>Your Parks and Recreation Fan ranking is...</h3>
+     <h4 class="ranking"></h4>
+     <p class="final-messaging"></p>
+     <p>You got <span class="num-correct"></span> out of <span class="num-question"></span> correct!</p>
+   </section>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+   <script src="index.js"></script>
   </body>
 </html>
