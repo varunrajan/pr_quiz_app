@@ -50,15 +50,25 @@ h2 {
 
 .start-button {
 	font-size: 36px;
-	margin: auto;
 	padding: 10px 20px;
-	border-radius: 100px;
+}
+
+.start-button, form > button, .next-question-button {
+	margin: auto;
+	border-radius: 10px;
 	color: white;
 	font-weight: bold;
 	text-shadow: 3px 3px #000000;
 	background-image: url("planks.png");
 	cursor: pointer;
+	text-align: center;
 }
+
+form > button, .next-question-button {
+	font-size: 16px;
+	padding: 5px 10px;
+}
+
 
 @media (max-width: 960px){
 	.question {
@@ -81,6 +91,24 @@ h2 {
 	}
 }
 
-.question label{
-	color: red;
+.question input{
+	display: none;
+}
+
+.selected {
+	background-color: #b03032;
+	color: white;
+	font-weight: bold;	
+}
+
+.question div{
+	text-align: center;
+	font-family: Helvetica, sans-serif;
+	margin: auto;
+	margin-top: 1%;
+	margin-bottom: 1%;
+	padding: 1% 2% 1% 2%;
+	width: 40%;
+	border: 2px solid black;
+	border-radius: 5px;
 }

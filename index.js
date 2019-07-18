@@ -3,12 +3,14 @@ $(function() {
   $(".start-button").click(function(e) {
     e.preventDefault();
     startQuiz();
+    highlightChosenAnswer();
   });
 
   $(".question").submit(function(e) {
     e.preventDefault();
     const selectedChoice = $('input[name="answer"]:checked').val();
     checkAnswer( selectedChoice );
+    $('.selected').removeClass('selected');
   //   console.log(questionsAnswered);
   //   console.log(correctAnswers);
 
@@ -205,6 +207,13 @@ function startQuiz() {
   $(".quiz-question-section").show();
   showQuestion();
 }
+
+function highlightChosenAnswer() {
+  $('input').on('click',function() {
+        $(this).parent().addClass('selected');
+        $(this).parent().siblings().removeClass('selected');
+      });
+  }
 
 function showCount() {
   $('.question-count').show();
