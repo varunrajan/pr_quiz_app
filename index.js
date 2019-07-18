@@ -3,7 +3,6 @@ $(function() {
   $(".start-button").click(function(e) {
     e.preventDefault();
     startQuiz();
-    highlightChosenAnswer();
   });
 
   $(".question").submit(function(e) {
@@ -207,13 +206,6 @@ function startQuiz() {
   $(".quiz-question-section").show();
   showQuestion();
 }
-
-function highlightChosenAnswer() {
-  $('input').on('click',function() {
-        $(this).parent().addClass('selected');
-        $(this).parent().siblings().removeClass('selected');
-      });
-  }
 
 function showCount() {
   $('.question-count').show();

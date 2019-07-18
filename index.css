@@ -64,9 +64,18 @@ h2 {
 	text-align: center;
 }
 
+.feedback-section {
+	margin-top: 30px;
+}
+
 form > button, .next-question-button {
 	font-size: 16px;
 	padding: 5px 10px;
+	margin-top: 20px;
+}
+
+form > button {
+	display: block;
 }
 
 
@@ -79,9 +88,10 @@ form > button, .next-question-button {
 	}
 	h2 {
 		font-size: 16px;
+		margin-bottom: 30px;
 	}
 	label {
-		font-size: 12px;
+		font-size: 14px;
 	}
 }
 
@@ -91,24 +101,13 @@ form > button, .next-question-button {
 	}
 }
 
-.question input{
-	display: none;
-}
-
-.selected {
-	background-color: #b03032;
-	color: white;
-	font-weight: bold;	
-}
-
 .question div{
-	text-align: center;
 	font-family: Helvetica, sans-serif;
-	margin: auto;
+	margin-left: auto;
+	margin-right: auto;
 	margin-top: 1%;
 	margin-bottom: 1%;
 	padding: 1% 2% 1% 2%;
-	width: 40%;
-	border: 2px solid black;
-	border-radius: 5px;
+	max-width: 40%;
+
 }
