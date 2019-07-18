@@ -9,7 +9,7 @@ $(function() {
     e.preventDefault();
     const selectedChoice = $('input[name="answer"]:checked').val();
     checkAnswer( selectedChoice );
-    $('.selected').removeClass('selected');
+  //  $('.selected').removeClass('selected');
   //   console.log(questionsAnswered);
   //   console.log(correctAnswers);
 
@@ -26,7 +26,13 @@ $(function() {
 
   $(".see-results").click(function(e) {
     e.preventDefault();
+    $('.feedback-section p').toggleClass('feedback').empty();
     showResults(status,message);
+  })
+
+  $('.restart-button').click(function(e) {
+    e.preventDefault();
+    resetQuiz();
   })
 
 });
@@ -65,77 +71,77 @@ const allQuestions = [
       ],
       correct: "Ron [f*cking] Swanson"
     }
-    ,
-   {
-    question: "Who shot Ron on the hunting trip?",
-    answerChoices: [
-      "Leslie",
-      "Donna",
-      "Tom",
-      "Jerry"
-    ],
-    correct: "Tom"
-  },
-  {
-    question: "Jerry’s real name is:",
-    answerChoices: [
-      "Larry",
-      "Jerry",
-      "Barry",
-      "Garry"
-    ],
-    correct: "Garry"
-  },
-  {
-    question: "What did R&B star and Donna’s cousin Ginuwine call his rubber ducks when he was little?",
-    answerChoices: [
-      "The Quackson Five",
-      "The Ducktations",
-      "Quack City",
-      "Ducks & Roses"
-    ],
-    correct: "The Quackson Five"
-  },
-  {
-    question: "Lil’ Sebastian is a…",
-    answerChoices: [
-      "Horse",
-      "Pony",
-      "Miniature horse",
-      "All of the above"
-    ],
-    correct: "Miniature horse"
-  },
-  {
-    question: "What’s Ben Wyatt’s favorite food?",
-    answerChoices: [
-      "Calzones",
-      "Pizza",
-      "Fruit Loops",
-      "Ice"
-    ],
-    correct: "Calzones"
-  },
-  {
-    question: "Ron Swanson’s political views can be categorized as…",
-    answerChoices: [
-      "Conservative",
-      "Libertarian",
-      "Progressive",
-      "Anarchist"
-    ],
-    correct: "Libertarian"
-  },
-  {
-    question: "What is a Pawnee resident’s preferred search engine?",
-    answerChoices: [
-      "Yahoo",
-      "AltaVista",
-      "AskJeeves",
-      "Bing"
-    ],
-    correct: "AltaVista"
-  } 
+  //   ,
+  //  {
+  //   question: "Who shot Ron on the hunting trip?",
+  //   answerChoices: [
+  //     "Leslie",
+  //     "Donna",
+  //     "Tom",
+  //     "Jerry"
+  //   ],
+  //   correct: "Tom"
+  // },
+  // {
+  //   question: "Jerry’s real name is:",
+  //   answerChoices: [
+  //     "Larry",
+  //     "Jerry",
+  //     "Barry",
+  //     "Garry"
+  //   ],
+  //   correct: "Garry"
+  // },
+  // {
+  //   question: "What did R&B star and Donna’s cousin Ginuwine call his rubber ducks when he was little?",
+  //   answerChoices: [
+  //     "The Quackson Five",
+  //     "The Ducktations",
+  //     "Quack City",
+  //     "Ducks & Roses"
+  //   ],
+  //   correct: "The Quackson Five"
+  // },
+  // {
+  //   question: "Lil’ Sebastian is a…",
+  //   answerChoices: [
+  //     "Horse",
+  //     "Pony",
+  //     "Miniature horse",
+  //     "All of the above"
+  //   ],
+  //   correct: "Miniature horse"
+  // },
+  // {
+  //   question: "What’s Ben Wyatt’s favorite food?",
+  //   answerChoices: [
+  //     "Calzones",
+  //     "Pizza",
+  //     "Fruit Loops",
+  //     "Ice"
+  //   ],
+  //   correct: "Calzones"
+  // },
+  // {
+  //   question: "Ron Swanson’s political views can be categorized as…",
+  //   answerChoices: [
+  //     "Conservative",
+  //     "Libertarian",
+  //     "Progressive",
+  //     "Anarchist"
+  //   ],
+  //   correct: "Libertarian"
+  // },
+  // {
+  //   question: "What is a Pawnee resident’s preferred search engine?",
+  //   answerChoices: [
+  //     "Yahoo",
+  //     "AltaVista",
+  //     "AskJeeves",
+  //     "Bing"
+  //   ],
+  //   correct: "AltaVista"
+  // } 
   ];
 
 let totalQuestions = allQuestions.length;
@@ -319,9 +325,33 @@ function gradeQuiz(rateCorrect) {
 
 function showResults(status,message) {
   $('.see-results').toggleClass('hide');
-  $('.quiz-results').removeClass("hide");
+  $('.quiz-question-section').hide();
+  $('.quiz-results').removeClass('hide');
   $('.ranking').text(status);
   $('.final-messaging').text(message);
-  $(".start-button").show();
+  $('.restart-button').removeClass('hide');
 }
 
+function resetQuiz(){
+  // What we want to do here is make sure that
+  // the counters for questionsAnswered and
+  // correctAnswers gets set back to zero, 
+  // and that all other elements are emptied or
+  // given back the classes they had at the beginning
+  // of the quiz when clicking "Start quiz!"
+
+  // As a result, this will contain some methods on
+  // classes in the startQuiz() function, plus some more
+  // to accommodate the changes to classes of elements
+  // upon showing different results
+  questionsAnswered = 0;
+  correctAnswers = 0;
+
+  $('.restart-button').addClass('hide');
+  $('.quiz-results').addClass('hide');
+  $('label').removeClass("correct");
+  showCount();
+  showQuestion();
+  $(".quiz-question-section").show();
+  $('button[type=submit]').toggleClass('hide');
+}
