@@ -25,6 +25,10 @@ header {
 	color: red;
 }
 
+.next-question-button {
+	display:block;
+}
+
 .hide {
 	display:none;
 }
@@ -66,6 +70,18 @@ h2 {
 
 .feedback-section {
 	margin-top: 30px;
+	text-align: center;
+}
+
+p.feedback {
+	font-family: Helvetica, sans-serif;
+	border-radius: 5px;
+	background-color: #c1d1d4;
+	box-shadow: 5px 5px;
+	width: 45%;
+	margin: auto;
+	margin-top: 1%;
+	padding: 1% 2% 1% 2%;
 }
 
 form > button, .next-question-button {
@@ -78,10 +94,24 @@ form > button {
 	display: block;
 }
 
+.question div{
+	font-family: Helvetica, sans-serif;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 1%;
+	margin-bottom: 1%;
+	padding: 1% 2% 1% 2%;
+	max-width: 40%;
+
+}
+
 
 @media (max-width: 960px){
 	.question {
 		width: 65%;
+	}
+	.question div{
+		max-width: none;
 	}
 	h1 {
 		font-size: 20px;
@@ -99,15 +129,4 @@ form > button {
 	.question {
 		width: 600px;
 	}
-}
-
-.question div{
-	font-family: Helvetica, sans-serif;
-	margin-left: auto;
-	margin-right: auto;
-	margin-top: 1%;
-	margin-bottom: 1%;
-	padding: 1% 2% 1% 2%;
-	max-width: 40%;
-
 }

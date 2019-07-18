@@ -21,6 +21,7 @@ $(function() {
     $('.next-question-button').toggleClass('hide');
     $('button[type=submit]').toggleClass('hide');
     showQuestion();
+    $('.feedback-section p').toggleClass('feedback');
   })
 
   $(".see-results").click(function(e) {
@@ -267,6 +268,7 @@ function provideFeedback( value ) {
   // Otherwise, still highlight the correct
   // answer and tell user they were correct.
   $('.feedback-section p').text(allFeedback[value]);
+  $('.feedback-section p').toggleClass('feedback');
   //console.log(value);
   //console.log(allFeedback[value]);
   // Provide button for users to move onto
