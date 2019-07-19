@@ -27,6 +27,7 @@ $(function() {
   $(".see-results").click(function(e) {
     e.preventDefault();
     $('.feedback-section p').toggleClass('feedback').empty();
+    $('.question-count').hide();
     showResults(status,message);
   })
 
