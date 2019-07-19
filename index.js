@@ -72,77 +72,77 @@ const allQuestions = [
       ],
       correct: "Ron [f*cking] Swanson"
     }
-  //   ,
-  //  {
-  //   question: "Who shot Ron on the hunting trip?",
-  //   answerChoices: [
-  //     "Leslie",
-  //     "Donna",
-  //     "Tom",
-  //     "Jerry"
-  //   ],
-  //   correct: "Tom"
-  // },
-  // {
-  //   question: "Jerry’s real name is:",
-  //   answerChoices: [
-  //     "Larry",
-  //     "Jerry",
-  //     "Barry",
-  //     "Garry"
-  //   ],
-  //   correct: "Garry"
-  // },
-  // {
-  //   question: "What did R&B star and Donna’s cousin Ginuwine call his rubber ducks when he was little?",
-  //   answerChoices: [
-  //     "The Quackson Five",
-  //     "The Ducktations",
-  //     "Quack City",
-  //     "Ducks & Roses"
-  //   ],
-  //   correct: "The Quackson Five"
-  // },
-  // {
-  //   question: "Lil’ Sebastian is a…",
-  //   answerChoices: [
-  //     "Horse",
-  //     "Pony",
-  //     "Miniature horse",
-  //     "All of the above"
-  //   ],
-  //   correct: "Miniature horse"
-  // },
-  // {
-  //   question: "What’s Ben Wyatt’s favorite food?",
-  //   answerChoices: [
-  //     "Calzones",
-  //     "Pizza",
-  //     "Fruit Loops",
-  //     "Ice"
-  //   ],
-  //   correct: "Calzones"
-  // },
-  // {
-  //   question: "Ron Swanson’s political views can be categorized as…",
-  //   answerChoices: [
-  //     "Conservative",
-  //     "Libertarian",
-  //     "Progressive",
-  //     "Anarchist"
-  //   ],
-  //   correct: "Libertarian"
-  // },
-  // {
-  //   question: "What is a Pawnee resident’s preferred search engine?",
-  //   answerChoices: [
-  //     "Yahoo",
-  //     "AltaVista",
-  //     "AskJeeves",
-  //     "Bing"
-  //   ],
-  //   correct: "AltaVista"
-  // } 
+    ,
+   {
+    question: "Who shot Ron on the hunting trip?",
+    answerChoices: [
+      "Leslie",
+      "Donna",
+      "Tom",
+      "Jerry"
+    ],
+    correct: "Tom"
+  },
+  {
+    question: "Jerry’s real name is:",
+    answerChoices: [
+      "Larry",
+      "Jerry",
+      "Barry",
+      "Garry"
+    ],
+    correct: "Garry"
+  },
+  {
+    question: "What did R&B star and Donna’s cousin Ginuwine call his rubber ducks when he was little?",
+    answerChoices: [
+      "The Quackson Five",
+      "The Ducktations",
+      "Quack City",
+      "Ducks & Roses"
+    ],
+    correct: "The Quackson Five"
+  },
+  {
+    question: "Lil’ Sebastian is a…",
+    answerChoices: [
+      "Horse",
+      "Pony",
+      "Miniature horse",
+      "All of the above"
+    ],
+    correct: "Miniature horse"
+  },
+  {
+    question: "What’s Ben Wyatt’s favorite food?",
+    answerChoices: [
+      "Calzones",
+      "Pizza",
+      "Fruit Loops",
+      "Ice"
+    ],
+    correct: "Calzones"
+  },
+  {
+    question: "Ron Swanson’s political views can be categorized as…",
+    answerChoices: [
+      "Conservative",
+      "Libertarian",
+      "Progressive",
+      "Anarchist"
+    ],
+    correct: "Libertarian"
+  },
+  {
+    question: "What is a Pawnee resident’s preferred search engine?",
+    answerChoices: [
+      "Yahoo",
+      "AltaVista",
+      "AskJeeves",
+      "Bing"
+    ],
+    correct: "AltaVista"
+  } 
   ];
 
 let totalQuestions = allQuestions.length;
